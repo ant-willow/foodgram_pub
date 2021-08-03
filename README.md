@@ -18,7 +18,7 @@
 	 **DOCKER_USERNAME** - имя пользователя Docker Hub\
 	 **DOCKER_PASSWORD** - пароль от Docker Hub\
 	 **SECRET_KEY** - секретный ключ Django\
-	 **POSTGRES_PASSWORD** - пароль от базы
+	 **POSTGRES_PASSWORD** - пароль от базы\
 	 **DOMAIN_NAME** - доменное имя сайта
  - Сделать push
 
