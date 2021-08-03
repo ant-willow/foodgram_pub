@@ -1,0 +1,21 @@
+<div class="card-user" data-author="{{ author.id }}">
+    <div class="card-user__header">
+        <h2 class="card-user__title">{{ author.get_full_name |default:author }}</h2>
+    </div>
+    <div class="card-user__body">
+        <ul class="card-user__items">
+
+            {% for recipe in author.recipes.all|slice:":3" %}
+            {% include 'includes/authorRecipeItem.html' %}
+            {% endfor %}
+
+            <li class="card-user__item">
+                <a href="{% url 'view_author' author %}" class="card-user__link link">
+                    {% if author.num_recipes > 0 %}Еще {{ author.num_recipes}} рецептов...{% endif %}</a>
+            </li>
+        </ul>
+    </div>
+    <div class="card-user__footer">
+        <a href="{% url 'subscriptions' %}"><button class="button button_style_light-blue button_size_auto" name="subscribe">Отписаться</button></a>
+    </div>
+</div>

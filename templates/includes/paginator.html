@@ -1,0 +1,25 @@
+{% load query_update %}
+
+<ul class="pagination__container">
+    {% if items.has_previous %}
+    <li class="pagination__item"><a class="pagination__link link"
+            href="{% query_update page=items.previous_page_number %}"><span class="icon-left"></span></a></li>
+    {% else %}
+    <li class="pagination__item"><a class="pagination__link link" href="#"><span class="icon-left"></span></a></li>
+    {% endif %}
+
+    {% for i in paginator.page_range %}
+    {% if items.number == i %}
+    <li class="pagination__item pagination__item_active"><a class="pagination__link link" href="#">{{ i }}</a></li>
+    {% else %}
+    <li class="pagination__item"><a class="pagination__link link" href="{% query_update page=i %}">{{ i }}</a></li>
+    {% endif %}
+    {% endfor %}
+
+    {% if items.has_next %}
+    <li class="pagination__item"><a class="pagination__link link"
+            href="{% query_update page=items.next_page_number %}"><span class="icon-right"></span></a></li>
+    {% else %}
+    <li class="pagination__item"><a class="pagination__link link" href="#"><span class="icon-right"></span></a></li>
+    {% endif %}
+</ul>

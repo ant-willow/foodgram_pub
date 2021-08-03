@@ -1,0 +1,34 @@
+{% load query_update %}
+
+<ul class="tags">
+    <li class="tags__item">
+        {% if not request.GET.breakfast_tag %}
+        <a id="breakfast" class="tags__checkbox tags__checkbox_style_orange"
+            href="{% query_update breakfast_tag=1 %}"></a>
+        {% else %}
+        <a id="breakfast" class="tags__checkbox tags__checkbox_style_orange tags__checkbox_active"
+            href="{% query_update breakfast_tag=0 %}"></a>
+        {% endif %}
+        <span for="breakfast" class="tags__label">Завтрак</span>
+    </li>
+
+    <li class="tags__item">
+        {% if not request.GET.dinner_tag %}
+        <a id="dinner" class="tags__checkbox tags__checkbox_style_green " href="{% query_update dinner_tag=1 %}"></a>
+        {% else %}
+        <a id="dinner" class="tags__checkbox tags__checkbox_style_green tags__checkbox_active"
+            href="{% query_update dinner_tag=0 %}"></a>
+        {% endif %}
+        <span for="dinner" class="tags__label">Обед</span>
+    </li>
+
+    <li class="tags__item">
+        {% if not request.GET.supper_tag %}
+        <a id="supper" class="tags__checkbox tags__checkbox_style_purple" href="{% query_update supper_tag=1 %}"></a>
+        {% else %}
+        <a id="supper" class="tags__checkbox tags__checkbox_style_purple tags__checkbox_active"
+            href="{% query_update supper_tag=0 %}"></a>
+        {% endif %}
+        <label for="supper" class="tags__label">Ужин</label>
+    </li>
+</ul>
